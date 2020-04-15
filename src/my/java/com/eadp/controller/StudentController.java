@@ -18,6 +18,6 @@ public class StudentController {
 
 	@GetMapping("findByName")
 	public ResponseEntity<?> findByName(String name, Pageable pageable) {
-		return ResponseEntity.ok(studentDao.findByNameNative(name));
+		return ResponseEntity.ok(studentDao.findByNameLike(name, pageable));
 	}
 }

@@ -18,7 +18,7 @@ public interface IStudentDao extends JpaRepository<Student, Long> {
 //	@TemplateQuery
 //	StudentVO findById(@Param("id") Long id);
 
-	@Query(value = "select s from Student s where s.name like %:name%")
+	@Query(value = "select s from Student s left join fetch s.clazz where s.name like %:name%", countQuery = "select count(1) from Student s where s.name like %:name%")
 	Page<Student> findByNameLike(@Param("name") String name, Pageable pageable);
 
 	@Query(value = "select * from student s left join clazz c on c.id=s.clazz_id where s.name like %:name%", nativeQuery = true)

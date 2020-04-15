@@ -1,0 +1,91 @@
+project setup --topLevelPackage com.eadp --java 8
+
+jpa setup --provider HIBERNATE --database MYSQL --hostName 192.168.145.110 --databaseName jiaowu --userName ctgae --password ctgae123!@# --profile dev
+
+property add --key spring.profiles.active --value dev
+property add --key server.port --value 8981 --profile dev
+property add --key spring.jpa.hibernate.ddl-auto --value update --profile dev
+property add --key spring.jpa.properties.hibernate.globally_quoted_identifiers --value true --profile dev
+property add --key spring.jpa.database-platform --value org.hibernate.dialect.MySQL5Dialect --profile dev
+property add --key spring.jpa.template-location --value classpath:/sqls --profile dev
+
+
+entity jpa --class ~.entity.Teacher1 --permitReservedWords
+
+
+field string --fieldName name --notNull false   --force  --comment 姓名
+
+
+field number --type java.lang.Integer --fieldName age --notNull false   --force  --comment 年龄
+
+field string --fieldName address --notNull false   --force  --comment 地址
+
+entity jpa --class ~.entity.Clazz --permitReservedWords
+
+
+field string --fieldName name --notNull false   --force  --comment 名称
+
+
+field string --fieldName teacherId --notNull false   --force  --comment 班主任ID
+
+
+
+entity jpa --class ~.entity.Student --permitReservedWords
+
+
+field string --fieldName name --notNull false   --force  --comment 姓名
+
+
+field number --type java.lang.Integer --fieldName age --notNull false   --force  --comment 年龄
+
+
+
+field string --fieldName address --notNull false   --force  --comment 地址
+
+
+
+#field number --fieldName clazzId --type java.lang.Long --notNull false   --force  --comment 班级ID
+
+
+field number --fieldName gender --type java.lang.Integer --notNull false   --force  --comment 性别
+
+
+focus --class ~.entity.Clazz
+
+field list --fieldName students --type ~.entity.Student --joinColumnName clazzId --force --comment 学生列表
+
+
+repository jpa --all --package ~.dao
+
+dto --class ~.dto.StudentDTO
+field number --fieldName clazzId --type java.lang.Long
+field number --fieldName gender --type java.lang.Integer
+field string --fieldName name
+field number --type java.lang.Integer --fieldName age
+field number --type java.lang.Integer --fieldName age1
+field number --type java.lang.Integer --fieldName age2
+field string --fieldName address
+
+entity projection --class ~.vo.StudentVO --entity ~.entity.Student --fields name,age,address,clazz,gender
+
+
+service --all --apiPackage ~.service --implPackage ~.service.impl
+
+finder add --entity ~.entity.Student --name findByNameLike --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
+finder add --entity ~.entity.Student --name findByAgeGreaterThan --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
+#finder add --entity ~.entity.Student --name findByAgeBetween --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
+finder add --entity ~.entity.Student --name findByAgeLessThan --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
+
+web mvc setup
+
+#web mvc view setup --type THYMELEAF
+
+web mvc controller --all --responseType JSON --package ~.controller
+#web mvc controller --all --responseType THYMELEAF --package ~.web
+#web mvc controller --all --pathPrefix /api
+
+web mvc finder --all --responseType JSON --package ~.controller
+
+push-in --all --force
+
+qdev debug

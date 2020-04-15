@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 <script-file>"
+	exit 0
+fi
+
+roo=/home/clouder/programs/spring-roo-2.0.0.RELEASE/bin/roo.sh
+
+rm -rf pom.xml src/main
+
+$roo script --file $1 &&
+
+#sed -i 's/http:\/\/repo\.spring\.io/https:\/\/repo.spring.io/g' pom.xml &&
+
+sed -i 's/https:\/\/oss.sonatype.org\/content\/repositories\/snapshots/https:\/\/maven.aliyun.com\/repository\/public/g' pom.xml &&
+sed -i 's/http:\/\/repo.spring.io\/spring-roo/https:\/\/maven.aliyun.com\/repository\/public/g' pom.xml &&
+
+#mvn clean spring-boot:run
+exit

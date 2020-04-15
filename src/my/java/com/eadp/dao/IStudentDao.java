@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.eadp.entity.Student;
+import com.eadp.vo.StudentVO;
 
 public interface IStudentDao extends JpaRepository<Student, Long> {
 
@@ -26,4 +27,7 @@ public interface IStudentDao extends JpaRepository<Student, Long> {
 
 	@Query(value = "select s,c from Student s, Clazz c where c.id=s.clazz.id and s.name like %:name%")
 	Page<Student> findByNameHahaah(@Param("name") String name, Pageable pageable);
+
+	@Query(value = "select new com.eadp.vo.StudentVO(s.id,s.name,s.age,s.address,c,s.gender) from Student s, Clazz c where c.id=s.clazz.id and s.name like %:name%")
+	Page<StudentVO> findByNameVO(@Param("name") String name, Pageable pageable);
 }

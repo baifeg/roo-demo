@@ -20,4 +20,9 @@ public class StudentController {
 	public ResponseEntity<?> findByName(String name, Pageable pageable) {
 		return ResponseEntity.ok(studentDao.findByNameLike(name, pageable));
 	}
+
+	@GetMapping("findByNameVO")
+	public ResponseEntity<?> findByNameVO(String name, Pageable pageable) {
+		return ResponseEntity.ok(studentDao.findByNameVO(name, pageable));
+	}
 }

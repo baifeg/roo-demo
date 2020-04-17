@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  * TODO Auto-generated class documentation
  *
  */
-@RooJpaRepository(entity = Student.class, finders = { @RooFinder(value = "findByNameLike", returnType = StudentVO.class, formBean = StudentDTO.class), @RooFinder(value = "findByAgeGreaterThan", returnType = StudentVO.class, formBean = StudentDTO.class), @RooFinder(value = "findByAgeLessThan", returnType = StudentVO.class, formBean = StudentDTO.class) })
+@RooJpaRepository(entity = Student.class, finders = { @RooFinder(value = "findByNameLike", returnType = StudentVO.class, formBean = StudentDTO.class), @RooFinder(value = "findByAgeGreaterThan", returnType = StudentVO.class, formBean = StudentDTO.class), @RooFinder(value = "findByAgeBetween", returnType = StudentVO.class, formBean = StudentDTO.class), @RooFinder(value = "findByAgeLessThan", returnType = StudentVO.class, formBean = StudentDTO.class) })
 @Transactional(readOnly = true)
 public interface StudentRepository extends DetachableJpaRepository<Student, Long>, StudentRepositoryCustom {
 

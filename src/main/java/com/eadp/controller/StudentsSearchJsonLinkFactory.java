@@ -26,6 +26,12 @@ public class StudentsSearchJsonLinkFactory implements MethodLinkFactory<Students
      * TODO Auto-generated attribute documentation
      *
      */
+    public static final String BYAGEBETWEEN = "byAgeBetween";
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
     public static final String BYNAMELIKE = "byNameLike";
 
     /**
@@ -57,6 +63,9 @@ public class StudentsSearchJsonLinkFactory implements MethodLinkFactory<Students
         }
         if (methodName.equals(BYAGEGREATERTHAN)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).byAgeGreaterThan(null, null, null)).buildAndExpand(pathVariables);
+        }
+        if (methodName.equals(BYAGEBETWEEN)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).byAgeBetween(null, null, null)).buildAndExpand(pathVariables);
         }
         if (methodName.equals(BYAGELESSTHAN)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).byAgeLessThan(null, null, null)).buildAndExpand(pathVariables);

@@ -91,6 +91,24 @@ public interface StudentRepositoryCustom {
      * @param pageable
      * @return Page
      */
+    public abstract Page<StudentVO> findByAgeBetween(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable);
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @return Long
+     */
+    public abstract long countByAgeBetween(StudentDTO formBean);
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
     public abstract Page<StudentVO> findByAgeLessThan(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable);
 
     /**

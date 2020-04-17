@@ -195,6 +195,34 @@ public class StudentRepositoryImpl extends QueryDslRepositorySupportExt<Student>
      * @param pageable
      * @return Page
      */
+    public Page<StudentVO> findByAgeBetween(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable) {
+        QStudent student = QStudent.student;
+        JPQLQuery<Student> query = from(student);
+        if (formBean != null) {
+            BooleanBuilder searchCondition = new BooleanBuilder();
+            if (formBean.getAge1() != null && formBean.getAge2() != null) {
+                searchCondition.and(student.age.between(formBean.getAge1(), formBean.getAge2()));
+            }
+            if (searchCondition.hasValue()) {
+                query.where(searchCondition);
+            }
+        }
+        Path<?>[] paths = new Path<?>[] { student.id, student.name, student.age, student.address, student.clazz, student.gender };
+        applyGlobalSearch(globalSearch, query, paths);
+        AttributeMappingBuilder mapping = buildMapper().map(ID, student.id).map(NAME, student.name).map(AGE, student.age).map(ADDRESS, student.address).map(CLAZZ, student.clazz).map(GENDER, student.gender);
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        return loadPage(query, pageable, Projections.constructor(StudentVO.class, student.id, student.name, student.age, student.address, student.clazz, student.gender));
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
     public Page<StudentVO> findByAgeLessThan(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable) {
         QStudent student = QStudent.student;
         JPQLQuery<Student> query = from(student);
@@ -247,6 +275,22 @@ public class StudentRepositoryImpl extends QueryDslRepositorySupportExt<Student>
         if (formBean.getAge() != null) {
             searchCondition.and(student.age.gt(formBean.getAge()));
         }
+        if (searchCondition.hasValue()) {
+            query.where(searchCondition);
+        }
+        return query.fetchCount();
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @return Long
+     */
+    public long countByAgeBetween(StudentDTO formBean) {
+        QStudent student = QStudent.student;
+        JPQLQuery<Student> query = from(student);
+        BooleanBuilder searchCondition = new BooleanBuilder();
         if (searchCondition.hasValue()) {
             query.where(searchCondition);
         }

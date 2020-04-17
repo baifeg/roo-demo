@@ -245,6 +245,18 @@ public class StudentServiceImpl implements StudentService {
      * @param pageable
      * @return Page
      */
+    public Page<StudentVO> findByAgeBetween(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable) {
+        return getStudentRepository().findByAgeBetween(formBean, globalSearch, pageable);
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
     public Page<StudentVO> findByAgeLessThan(StudentDTO formBean, GlobalSearch globalSearch, Pageable pageable) {
         return getStudentRepository().findByAgeLessThan(formBean, globalSearch, pageable);
     }
@@ -267,6 +279,16 @@ public class StudentServiceImpl implements StudentService {
      */
     public long countByAgeGreaterThan(StudentDTO formBean) {
         return getStudentRepository().countByAgeGreaterThan(formBean);
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @return Long
+     */
+    public long countByAgeBetween(StudentDTO formBean) {
+        return getStudentRepository().countByAgeBetween(formBean);
     }
 
     /**

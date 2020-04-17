@@ -73,7 +73,7 @@ service --all --apiPackage ~.service --implPackage ~.service.impl
 
 finder add --entity ~.entity.Student --name findByNameLike --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
 finder add --entity ~.entity.Student --name findByAgeGreaterThan --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
-#finder add --entity ~.entity.Student --name findByAgeBetween --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
+finder add --entity ~.entity.Student --name findByAgeBetween --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
 finder add --entity ~.entity.Student --name findByAgeLessThan --formBean ~.dto.StudentDTO --returnType ~.vo.StudentVO
 
 web mvc setup

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RooController(entity = Student.class, type = ControllerType.SEARCH)
-@RooSearch(finders = { "findByAgeGreaterThan", "findByAgeLessThan", "findByNameLike" })
+@RooSearch(finders = { "findByAgeBetween", "findByAgeGreaterThan", "findByAgeLessThan", "findByNameLike" })
 @RooJSON
 @RestController
 @RequestMapping(value = "/students/search", name = "StudentsSearchJsonController", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -90,6 +90,20 @@ public class StudentsSearchJsonController {
     @GetMapping(name = "byAgeGreaterThan", value = "/byAgeGreaterThan")
     public ResponseEntity<Page<StudentVO>> byAgeGreaterThan(@ModelAttribute("formBean") StudentDTO formBean, GlobalSearch search, Pageable pageable) {
         Page<StudentVO> students = getStudentService().findByAgeGreaterThan(formBean, search, pageable);
+        return ResponseEntity.ok(students);
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param formBean
+     * @param search
+     * @param pageable
+     * @return ResponseEntity
+     */
+    @GetMapping(name = "byAgeBetween", value = "/byAgeBetween")
+    public ResponseEntity<Page<StudentVO>> byAgeBetween(@ModelAttribute("formBean") StudentDTO formBean, GlobalSearch search, Pageable pageable) {
+        Page<StudentVO> students = getStudentService().findByAgeBetween(formBean, search, pageable);
         return ResponseEntity.ok(students);
     }
 

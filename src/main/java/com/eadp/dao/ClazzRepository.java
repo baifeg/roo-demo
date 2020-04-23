@@ -1,8 +1,9 @@
 package com.eadp.dao;
-import com.eadp.entity.Clazz;
-import io.springlets.data.jpa.repository.DetachableJpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.roo.addon.layers.repository.jpa.annotations.RooJpaRepository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.eadp.entity.Clazz;
 
 /**
  * = ClazzRepository
@@ -12,5 +13,5 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @RooJpaRepository(entity = Clazz.class)
 @Transactional(readOnly = true)
-public interface ClazzRepository extends DetachableJpaRepository<Clazz, Long>, ClazzRepositoryCustom {
+public interface ClazzRepository extends JpaRepository<Clazz, Long>, ClazzRepositoryCustom {
 }

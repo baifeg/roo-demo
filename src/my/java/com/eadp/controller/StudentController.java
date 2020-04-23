@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eadp.dao.IStudentDao;
 
 @RestController
-@RequestMapping("students")
+@RequestMapping("students/query/")
 public class StudentController {
 
 	@Autowired
@@ -24,5 +24,10 @@ public class StudentController {
 	@GetMapping("findByNameVO")
 	public ResponseEntity<?> findByNameVO(String name, Pageable pageable) {
 		return ResponseEntity.ok(studentDao.findByNameVO(name, pageable));
+	}
+
+	@GetMapping("findByNameNative")
+	public ResponseEntity<?> findByNameVO(String name) {
+		return ResponseEntity.ok(studentDao.findByNameNative(name));
 	}
 }

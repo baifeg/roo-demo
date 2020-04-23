@@ -2,6 +2,12 @@ package com.eadp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.slyak.spring.jpa.FreemarkerSqlTemplates;
+import com.slyak.spring.jpa.GenericJpaRepositoryFactoryBean;
+import com.slyak.spring.jpa.GenericJpaRepositoryImpl;
 
 /**
  * = EadpApplication
@@ -10,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.eadp", repositoryBaseClass = GenericJpaRepositoryImpl.class, repositoryFactoryBeanClass = GenericJpaRepositoryFactoryBean.class)
 public class EadpApplication {
 
     /**
@@ -20,4 +27,11 @@ public class EadpApplication {
     public static void main(String[] args) {
         SpringApplication.run(EadpApplication.class, args);
     }
+
+	@Bean
+	public FreemarkerSqlTemplates freemarkerSqlTemplates() {
+		FreemarkerSqlTemplates templates = new FreemarkerSqlTemplates();
+		templates.setSuffix(".sftl");
+		return templates;
+	}
 }

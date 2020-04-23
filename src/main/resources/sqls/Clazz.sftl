@@ -1,0 +1,7 @@
+--xxxMyName
+SELECT c.id, c.name as clazzName, s.name FROM clazz c
+LEFT JOIN student s ON s.clazz_id=c.id
+WHERE 1=1
+<#if name??>
+AND s.name LIKE concat('%', :name, '%')
+</#if>

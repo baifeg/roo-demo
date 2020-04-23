@@ -18,6 +18,7 @@ public interface IStudentDao extends JpaRepository<Student, Long> {
 	Page<Student> findByNameLike(@Param("name") String name, Pageable pageable);
 
 	// 原生SQL查询，如果需要分页，需要额外定义countQuery，并手动处理pageable
+//	@Query(value = "select * from student s left join clazz c on c.id=s.clazz_id where 1=1 if(s.name != null,and s.name like %:name%,)", nativeQuery = true)
 	@Query(value = "select * from student s left join clazz c on c.id=s.clazz_id where s.name like %:name%", nativeQuery = true)
 	List<Student> findByNameNative(@Param("name") String name);
 

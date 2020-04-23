@@ -5,7 +5,7 @@
   <parent>
     <groupId>io.spring.platform</groupId>
     <artifactId>platform-bom</artifactId>
-    <version>Athens-RELEASE</version>
+    <version>Brussels-RELEASE</version>
     <relativePath/>
   </parent>
   <modelVersion>4.0.0</modelVersion>
@@ -47,11 +47,6 @@
       <name>Spring Roo Repository</name>
       <url>https://maven.aliyun.com/repository/public</url>
     </repository>
-  <repository>
-            <id>spring-roo-repository</id>
-            <url>https://repo.spring.io/spring-roo</url>
-            <name>Spring Roo Repository</name>
-        </repository>
     </repositories>
 
   <dependencyManagement>
@@ -199,6 +194,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.60</version>
         </dependency>
+        <dependency>
+        <groupId>com.slyak</groupId>
+        <artifactId>spring-data-jpa-extra</artifactId>
+        <version>2.1.2.RELEASE</version>
+    </dependency>
     </dependencies>
 
   <build>

@@ -7,7 +7,7 @@ fi
 
 roo=/home/clouder/programs/spring-roo-2.0.0.RELEASE/bin/roo.sh
 
-rm -rf pom.xml src/main
+rm -rf pom.xml src/main/java src/main/resources/*.*
 
 $roo script --file $1 &&
 
@@ -15,6 +15,7 @@ $roo script --file $1 &&
 
 sed -i 's/https:\/\/oss.sonatype.org\/content\/repositories\/snapshots/https:\/\/maven.aliyun.com\/repository\/public/g' pom.xml &&
 sed -i 's/http:\/\/repo.spring.io\/spring-roo/https:\/\/maven.aliyun.com\/repository\/public/g' pom.xml &&
+sed -i 's/Athens\-RELEASE/Brussels\-RELEASE/g' pom.xml &&
 
 #mvn clean spring-boot:run
 exit

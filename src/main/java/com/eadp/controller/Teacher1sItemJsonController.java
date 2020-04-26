@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
+import io.swagger.annotations.Api;
 
 /**
  * = Teacher1sItemJsonController
@@ -32,6 +33,7 @@ import org.springframework.web.util.UriComponents;
 @RooJSON
 @RestController
 @RequestMapping(value = "/teacher1s/{teacher1}", name = "Teacher1sItemJsonController", produces = MediaType.APPLICATION_JSON_VALUE)
+@Api
 public class Teacher1sItemJsonController {
 
     /**

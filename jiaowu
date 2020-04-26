@@ -3,12 +3,14 @@ project setup --topLevelPackage com.eadp --java 8
 jpa setup --provider HIBERNATE --database MYSQL --hostName 192.168.145.110 --databaseName jiaowu --userName ctgae --password ctgae123!@# --profile dev
 #jpa setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
 #jpa setup --provider HIBERNATE --database DERBY_EMBEDDED
+#jpa setup --provider HIBERNATE --database H2_IN_MEMORY
 
 property add --key spring.profiles.active --value dev
 property add --key server.port --value 8981 --profile dev
 property add --key spring.jpa.hibernate.ddl-auto --value update --profile dev
 property add --key spring.jpa.properties.hibernate.globally_quoted_identifiers --value true --profile dev
 #property add --key spring.datasource.url --value jdbc:hsqldb:file:eadp;shutdown=true;sql.syntax_mys=true --profile dev
+#property add --key spring.datasource.url --value jdbc:h2:eadp;shutdown=true;sql.syntax_mys=true --profile dev
 property add --key spring.jpa.database-platform --value org.hibernate.dialect.MySQL5Dialect --profile dev
 property add --key spring.jpa.template-location --value classpath:/sqls --profile dev
 
@@ -89,6 +91,8 @@ web mvc controller --all --responseType JSON --package ~.controller
 
 #web mvc finder --all --responseType JSON --package ~.controller
 
+qdev debug
+qdev swagger --profile dev
+
 push-in --all --force
 
-qdev debug

@@ -1,7 +1,10 @@
 package com.eadp.dto;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.roo.addon.dto.annotations.RooDTO;
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
-import org.springframework.format.annotation.NumberFormat;
+
+import com.slyak.spring.jpa.TemplateQueryObject;
+
 import io.springlets.format.EntityFormat;
 
 /**
@@ -13,6 +16,7 @@ import io.springlets.format.EntityFormat;
 @RooDTO
 @RooJavaBean
 @EntityFormat
+@TemplateQueryObject
 public class StudentDTO {
 
     /**

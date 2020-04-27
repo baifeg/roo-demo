@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eadp.dao.IClazzDao;
+import com.eadp.dto.StudentDTO;
 
 @RestController
 @RequestMapping("clazzes/query/")
@@ -16,7 +17,7 @@ public class ClazzController {
 	private IClazzDao clazzDao;
 
 	@GetMapping("findByName")
-	public ResponseEntity<?> findByName(String name, Pageable pageable) {
-		return ResponseEntity.ok(clazzDao.xxxMyName(name, pageable));
+	public ResponseEntity<?> findByName(StudentDTO student, Pageable pageable) {
+		return ResponseEntity.ok(clazzDao.xxxMyName(student, pageable));
 	}
 }

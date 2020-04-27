@@ -7,6 +7,7 @@ import com.slyak.spring.jpa.FreemarkerSqlTemplates;
 import com.slyak.spring.jpa.GenericJpaRepositoryFactoryBean;
 import com.slyak.spring.jpa.GenericJpaRepositoryImpl;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * = EadpApplication
@@ -17,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.eadp", repositoryBaseClass = GenericJpaRepositoryImpl.class, repositoryFactoryBeanClass = GenericJpaRepositoryFactoryBean.class)
 @EnableSwagger2
+@EnableCaching
 public class EadpApplication {
 
     /**

@@ -47,6 +47,11 @@
       <name>Spring Roo Repository</name>
       <url>https://maven.aliyun.com/repository/public</url>
     </repository>
+  <repository>
+            <id>spring-roo-repository</id>
+            <url>https://repo.spring.io/spring-roo</url>
+            <name>Spring Roo Repository</name>
+        </repository>
     </repositories>
 
   <dependencyManagement>
@@ -194,11 +199,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.60</version>
         </dependency>
-        <dependency>
-        <groupId>com.slyak</groupId>
-        <artifactId>spring-data-jpa-extra</artifactId>
-        <version>2.1.2.RELEASE</version>
-    </dependency>
     <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -209,14 +209,11 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
-    <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-    <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
+        <dependency>
+	     <groupId>com.slyak</groupId>
+	     <artifactId>spring-data-jpa-extra</artifactId>
+	     <version>2.1.21.RELEASE</version>
+	 </dependency>
     </dependencies>
 
   <build>

@@ -3,6 +3,7 @@ import com.eadp.entity.Teacher1;
 import org.springframework.roo.addon.web.mvc.controller.annotations.ControllerType;
 import org.springframework.roo.addon.web.mvc.controller.annotations.RooController;
 import org.springframework.roo.addon.web.mvc.controller.annotations.responses.json.RooJSON;
+import io.swagger.annotations.Api;
 import com.eadp.service.Teacher1Service;
 import io.springlets.web.NotFoundException;
 import javax.validation.Valid;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
-import io.swagger.annotations.Api;
 
 /**
  * = Teacher1sItemJsonController
@@ -31,9 +31,9 @@ import io.swagger.annotations.Api;
  */
 @RooController(entity = Teacher1.class, type = ControllerType.ITEM)
 @RooJSON
+@Api
 @RestController
 @RequestMapping(value = "/teacher1s/{teacher1}", name = "Teacher1sItemJsonController", produces = MediaType.APPLICATION_JSON_VALUE)
-@Api
 public class Teacher1sItemJsonController {
 
     /**

@@ -1,20 +1,17 @@
 package com.eadp.service.impl;
+import com.eadp.service.Teacher1Service;
+import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
+import com.eadp.dao.Teacher1Repository;
+import com.eadp.entity.Teacher1;
+import io.springlets.data.domain.GlobalSearch;
+import io.springlets.data.web.validation.MessageI18n;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.eadp.dao.Teacher1Repository;
-import com.eadp.entity.Teacher1;
-import com.eadp.service.Teacher1Service;
-
-import io.springlets.data.domain.GlobalSearch;
-import io.springlets.data.web.validation.MessageI18n;
 
 /**
  * = Teacher1ServiceImpl
@@ -132,9 +129,9 @@ public class Teacher1ServiceImpl implements Teacher1Service {
      * @param id
      * @return Teacher1
      */
-//    public Teacher1 findOneForUpdate(Long id) {
-//        return getTeacher1Repository().findOneDetached(id);
-//    }
+    public Teacher1 findOneForUpdate(Long id) {
+        return getTeacher1Repository().findOneDetached(id);
+    }
 
     /**
      * TODO Auto-generated method documentation

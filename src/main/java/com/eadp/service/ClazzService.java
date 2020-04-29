@@ -1,15 +1,12 @@
 package com.eadp.service;
-import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.roo.addon.layers.service.annotations.RooService;
-
 import com.eadp.entity.Clazz;
-
-import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.ValidatorService;
 import io.springlets.format.EntityResolver;
+import org.springframework.roo.addon.layers.service.annotations.RooService;
+import io.springlets.data.domain.GlobalSearch;
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * = ClazzService
@@ -64,7 +61,7 @@ public interface ClazzService extends EntityResolver<Clazz, Long>, ValidatorServ
      * @param id
      * @return Clazz
      */
-//    public abstract Clazz findOneForUpdate(Long id);
+    public abstract Clazz findOneForUpdate(Long id);
 
     /**
      * TODO Auto-generated method documentation

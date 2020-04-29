@@ -1,18 +1,15 @@
 package com.eadp.service;
-import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.roo.addon.layers.service.annotations.RooService;
-
-import com.eadp.dto.StudentDTO;
-import com.eadp.entity.Clazz;
 import com.eadp.entity.Student;
-import com.eadp.vo.StudentVO;
-
-import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.ValidatorService;
 import io.springlets.format.EntityResolver;
+import org.springframework.roo.addon.layers.service.annotations.RooService;
+import com.eadp.dto.StudentDTO;
+import com.eadp.entity.Clazz;
+import com.eadp.vo.StudentVO;
+import io.springlets.data.domain.GlobalSearch;
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * = StudentService
@@ -67,7 +64,7 @@ public interface StudentService extends EntityResolver<Student, Long>, Validator
      * @param id
      * @return Student
      */
-//    public abstract Student findOneForUpdate(Long id);
+    public abstract Student findOneForUpdate(Long id);
 
     /**
      * TODO Auto-generated method documentation

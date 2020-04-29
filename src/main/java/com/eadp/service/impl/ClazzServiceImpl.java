@@ -1,26 +1,23 @@
 package com.eadp.service.impl;
+import com.eadp.service.ClazzService;
+import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
+import com.eadp.dao.ClazzRepository;
+import com.eadp.entity.Clazz;
+import com.eadp.entity.Student;
+import com.eadp.service.StudentService;
+import io.springlets.data.domain.GlobalSearch;
+import io.springlets.data.web.validation.MessageI18n;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.eadp.dao.ClazzRepository;
-import com.eadp.entity.Clazz;
-import com.eadp.entity.Student;
-import com.eadp.service.ClazzService;
-import com.eadp.service.StudentService;
-
-import io.springlets.data.domain.GlobalSearch;
-import io.springlets.data.web.validation.MessageI18n;
 
 /**
  * = ClazzServiceImpl
@@ -224,9 +221,9 @@ public class ClazzServiceImpl implements ClazzService {
      * @param id
      * @return Clazz
      */
-//    public Clazz findOneForUpdate(Long id) {
-//        return getClazzRepository().findOneDetached(id);
-//    }
+    public Clazz findOneForUpdate(Long id) {
+        return getClazzRepository().findOneDetached(id);
+    }
 
     /**
      * TODO Auto-generated method documentation

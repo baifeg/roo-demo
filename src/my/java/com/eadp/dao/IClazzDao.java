@@ -8,7 +8,9 @@ import com.eadp.entity.Clazz;
 import com.slyak.spring.jpa.GenericJpaRepository;
 import com.slyak.spring.jpa.TemplateQuery;
 
-public interface IClazzDao extends GenericJpaRepository<Clazz, Long> {
+import io.springlets.data.jpa.repository.DetachableJpaRepository;
+
+public interface IClazzDao extends GenericJpaRepository<Clazz, Long>, DetachableJpaRepository<Clazz, Long> {
 //	@TemplateQuery
 //	Page<StudentWithClazz> xxxMyName(@Param("name") String name, Pageable pageable);
 

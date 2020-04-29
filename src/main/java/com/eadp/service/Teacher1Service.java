@@ -1,15 +1,12 @@
 package com.eadp.service;
-import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.roo.addon.layers.service.annotations.RooService;
-
 import com.eadp.entity.Teacher1;
-
-import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.ValidatorService;
 import io.springlets.format.EntityResolver;
+import org.springframework.roo.addon.layers.service.annotations.RooService;
+import io.springlets.data.domain.GlobalSearch;
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * = Teacher1Service
@@ -64,7 +61,7 @@ public interface Teacher1Service extends EntityResolver<Teacher1, Long>, Validat
      * @param id
      * @return Teacher1
      */
-//    public abstract Teacher1 findOneForUpdate(Long id);
+    public abstract Teacher1 findOneForUpdate(Long id);
 
     /**
      * TODO Auto-generated method documentation

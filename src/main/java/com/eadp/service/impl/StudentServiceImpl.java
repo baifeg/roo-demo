@@ -1,23 +1,20 @@
 package com.eadp.service.impl;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.eadp.service.StudentService;
 import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.eadp.dao.StudentRepository;
 import com.eadp.dto.StudentDTO;
 import com.eadp.entity.Clazz;
 import com.eadp.entity.Student;
-import com.eadp.service.StudentService;
 import com.eadp.vo.StudentVO;
-
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * = StudentServiceImpl
@@ -139,9 +136,9 @@ public class StudentServiceImpl implements StudentService {
      * @param id
      * @return Student
      */
-//    public Student findOneForUpdate(Long id) {
-//        return getStudentRepository().findOneDetached(id);
-//    }
+    public Student findOneForUpdate(Long id) {
+        return getStudentRepository().findOneDetached(id);
+    }
 
     /**
      * TODO Auto-generated method documentation

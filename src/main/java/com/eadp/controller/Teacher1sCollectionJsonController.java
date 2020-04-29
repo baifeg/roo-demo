@@ -3,6 +3,7 @@ import com.eadp.entity.Teacher1;
 import org.springframework.roo.addon.web.mvc.controller.annotations.ControllerType;
 import org.springframework.roo.addon.web.mvc.controller.annotations.RooController;
 import org.springframework.roo.addon.web.mvc.controller.annotations.responses.json.RooJSON;
+import io.swagger.annotations.Api;
 import com.eadp.service.Teacher1Service;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.Collection;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
-import io.swagger.annotations.Api;
 
 /**
  * = Teacher1sCollectionJsonController
@@ -34,9 +34,9 @@ import io.swagger.annotations.Api;
  */
 @RooController(entity = Teacher1.class, type = ControllerType.COLLECTION)
 @RooJSON
+@Api
 @RestController
 @RequestMapping(value = "/teacher1s", name = "Teacher1sCollectionJsonController", produces = MediaType.APPLICATION_JSON_VALUE)
-@Api
 public class Teacher1sCollectionJsonController {
 
     /**

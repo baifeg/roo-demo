@@ -1,6 +1,7 @@
 package com.eadp.service.impl;
 import com.eadp.service.StudentService;
 import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
+import com.eadp.dao.StudentDao;
 import com.eadp.dao.StudentRepository;
 import com.eadp.dto.StudentDTO;
 import com.eadp.entity.Clazz;
@@ -26,6 +27,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 public class StudentServiceImpl implements StudentService {
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    private StudentDao studentDao;
 
     /**
      * TODO Auto-generated attribute documentation
@@ -59,6 +66,24 @@ public class StudentServiceImpl implements StudentService {
      */
     public void setStudentRepository(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @return StudentDao
+     */
+    public StudentDao getStudentDao() {
+        return studentDao;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param studentDao
+     */
+    public void setStudentDao(StudentDao studentDao) {
+        this.studentDao = studentDao;
     }
 
     /**

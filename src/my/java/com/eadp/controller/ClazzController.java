@@ -20,4 +20,9 @@ public class ClazzController {
 	public ResponseEntity<?> findByName(StudentDTO student, Pageable pageable) {
 		return ResponseEntity.ok(clazzDao.xxxMyName(student, pageable));
 	}
+
+	@GetMapping("queryClazzWithStudents")
+	public ResponseEntity<?> findByName(Long id, Pageable pageable) {
+		return ResponseEntity.ok(clazzDao.xxxClazzWithStudents(id, pageable));
+	}
 }

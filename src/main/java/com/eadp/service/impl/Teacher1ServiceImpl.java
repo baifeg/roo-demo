@@ -1,6 +1,7 @@
 package com.eadp.service.impl;
 import com.eadp.service.Teacher1Service;
 import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
+import com.eadp.dao.Teacher1Dao;
 import com.eadp.dao.Teacher1Repository;
 import com.eadp.entity.Teacher1;
 import io.springlets.data.domain.GlobalSearch;
@@ -31,6 +32,12 @@ public class Teacher1ServiceImpl implements Teacher1Service {
     private Teacher1Repository teacher1Repository;
 
     /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    private Teacher1Dao teacher1Dao;
+
+    /**
      * TODO Auto-generated constructor documentation
      *
      * @param teacher1Repository
@@ -56,6 +63,24 @@ public class Teacher1ServiceImpl implements Teacher1Service {
      */
     public void setTeacher1Repository(Teacher1Repository teacher1Repository) {
         this.teacher1Repository = teacher1Repository;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @return Teacher1Dao
+     */
+    public Teacher1Dao getTeacher1Dao() {
+        return teacher1Dao;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param teacher1Dao
+     */
+    public void setTeacher1Dao(Teacher1Dao teacher1Dao) {
+        this.teacher1Dao = teacher1Dao;
     }
 
     /**

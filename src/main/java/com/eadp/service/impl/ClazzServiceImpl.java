@@ -1,6 +1,7 @@
 package com.eadp.service.impl;
 import com.eadp.service.ClazzService;
 import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
+import com.eadp.dao.ClazzDao;
 import com.eadp.dao.ClazzRepository;
 import com.eadp.entity.Clazz;
 import com.eadp.entity.Student;
@@ -29,6 +30,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 public class ClazzServiceImpl implements ClazzService {
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    private ClazzDao clazzDao;
 
     /**
      * TODO Auto-generated attribute documentation
@@ -70,6 +77,24 @@ public class ClazzServiceImpl implements ClazzService {
      */
     public void setClazzRepository(ClazzRepository clazzRepository) {
         this.clazzRepository = clazzRepository;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @return ClazzDao
+     */
+    public ClazzDao getClazzDao() {
+        return clazzDao;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param clazzDao
+     */
+    public void setClazzDao(ClazzDao clazzDao) {
+        this.clazzDao = clazzDao;
     }
 
     /**

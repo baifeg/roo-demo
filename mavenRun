@@ -1,13 +1,20 @@
 #!/bin/bash
 
+SCRIPT_HOME=`dirname $0`
+SCRIPT_HOME=`cd $SCRIPT_HOME; pwd`
+
 if [ $# -lt 1 ]; then
 	echo "usage: $0 <script-file>"
 	exit 0
 fi
 
+cd $SCRIPT_HOME
+
 roo=/home/clouder/programs/spring-roo-2.0.0.RELEASE/bin/roo.sh
 
-rm -rf pom.xml src/main/java src/main/resources/*.*
+mv src/main/resources/sqls sqls_bak
+
+rm -rf pom.xml src/main/java src/main/resources
 
 $roo script --file $1 &&
 
@@ -18,4 +25,8 @@ sed -i 's/http:\/\/repo.spring.io\/spring-roo/https:\/\/maven.aliyun.com\/reposi
 sed -i 's/Athens\-RELEASE/Brussels\-RELEASE/g' pom.xml &&
 
 #mvn clean spring-boot:run
+
+mkdir -p src/main/resources/sqls
+
+mv sqls_bak/* src/main/resources/sqls/
 exit

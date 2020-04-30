@@ -2,6 +2,7 @@ package com.eadp.dao;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 
 import com.eadp.dto.StudentDTO;
 import com.eadp.entity.Clazz;
@@ -16,4 +17,7 @@ public interface IClazzDao extends GenericJpaRepository<Clazz, Long>, Detachable
 
 	@TemplateQuery
 	Page<StudentWithClazz> xxxMyName(StudentDTO student, Pageable pageable);
+
+	@TemplateQuery
+	Page<Clazz> xxxClazzWithStudents(@Param("id") Long id, Pageable pageable);
 }

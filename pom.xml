@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <!-- Spring IO Platform is the parent of the generated application to be able to
     use Spring Boot and all its default configuration -->
   <parent>
@@ -22,7 +22,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <aspectj.plugin.version>1.8</aspectj.plugin.version>
     <asciidoclet.version>1.5.4</asciidoclet.version>
-    <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+    <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
   <java.version>1.8</java.version>
     <springlets.version>1.2.0.RELEASE</springlets.version>
     <tracee.version>1.1.2</tracee.version>
@@ -45,14 +45,9 @@
     <repository>
       <id>spring-roo-repository</id>
       <name>Spring Roo Repository</name>
-      <url>https://maven.aliyun.com/repository/public</url>
+      <url>https://repo.spring.io/spring-roo</url>
     </repository>
-  <repository>
-            <id>spring-roo-repository</id>
-            <url>https://repo.spring.io/spring-roo</url>
-            <name>Spring Roo Repository</name>
-        </repository>
-    </repositories>
+  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -115,6 +110,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>com.slyak</groupId>
+      <artifactId>spring-data-jpa-extra</artifactId>
+      <version>2.1.21.RELEASE</version>
     </dependency>
 
     <!-- Spring Roo annotations -->
@@ -209,11 +210,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
-        <dependency>
-	     <groupId>com.slyak</groupId>
-	     <artifactId>spring-data-jpa-extra</artifactId>
-	     <version>2.1.21.RELEASE</version>
-	 </dependency>
     </dependencies>
 
   <build>
@@ -304,13 +300,13 @@
             <includeDependencySources>true</includeDependencySources>
             <linksource>true</linksource>
             <links>
-              <link>http://docs.oracle.com/javase/${java.version}/docs/api/</link>
-              <link>http://docs.oracle.com/javaee/${java.product.version}/api/</link>
-              <link>http://docs.spring.io/spring-framework/docs/${spring.version}/javadoc-api/</link>
-              <link>http://docs.spring.io/spring-boot/docs/${spring-boot.version}/api/</link>
-              <link>http://fasterxml.github.io/jackson-core/javadoc/2.8/</link>
-              <link>http://fasterxml.github.io/jackson-databind/javadoc/2.8</link>
-              <link>http://cxf.apache.org/javadoc/latest-3.1.x/</link>
+              <link>https://docs.oracle.com/javase/${java.version}/docs/api/</link>
+              <link>https://docs.oracle.com/javaee/${java.product.version}/api/</link>
+              <link>https://docs.spring.io/spring-framework/docs/${spring.version}/javadoc-api/</link>
+              <link>https://docs.spring.io/spring-boot/docs/${spring-boot.version}/api/</link>
+              <link>https://fasterxml.github.io/jackson-core/javadoc/2.8/</link>
+              <link>https://fasterxml.github.io/jackson-databind/javadoc/2.8</link>
+              <link>https://cxf.apache.org/javadoc/latest-3.1.x/</link>
             </links>
             <overview>src/main/java/overview.adoc</overview>
             <show>private</show>

@@ -6,3 +6,10 @@ WHERE 1=1
 AND s.name LIKE concat('%', :name, '%')
 </#if>
 
+--xxxClazzWithStudents
+SELECT * FROM clazz c
+LEFT JOIN student s ON s.clazz_id=c.id
+WHERE 1=1
+<#if id??>
+AND c.id = :id
+</#if>
